@@ -126,7 +126,7 @@ const NainitalStory = () => {
           </p>
           <button 
             onClick={() => scrollToSection(0)}
-            className="group bg-black/30 sm:bg-white/20 backdrop-blur-md border border-white/30 hover:bg-black/40 sm:hover:bg-white/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="group bg-white/15 backdrop-blur-md border border-white/35 hover:bg-white/25 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Begin the Story
             <ChevronDown className="inline ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:animate-bounce" />
@@ -165,9 +165,9 @@ const NainitalStory = () => {
                 isVisible[`section-${index}`] ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`}>
                 {/* Content Card */}
-                <div className="bg-black/20 sm:bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl">
+                <div className="bg-white/5 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6 sm:mb-8">
-                    <div className="p-3 sm:p-4 bg-white/20 backdrop-blur-lg rounded-full border border-white/30 shrink-0">
+                    <div className="p-3 sm:p-4 bg-white/15 backdrop-blur-lg rounded-full border border-white/35 shrink-0">
                       {section.icon}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -209,14 +209,14 @@ const NainitalStory = () => {
                     {/* Story Content */}
                     <div className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} order-2`}>
                       <div className="space-y-4 sm:space-y-6">
-                        <div className="backdrop-blur-sm bg-black/30 sm:bg-white/5 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-white/10 shadow-lg">
+                        <div className="backdrop-blur-md bg-white/5 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-white/20 shadow-lg">
                           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/90 font-light italic">
                             "{section.content}"
                           </p>
                         </div>
                         
                         {/* Story Details */}
-                        <div className="bg-black/30 sm:bg-white/10 backdrop-blur-lg rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/20">
+                        <div className="bg-white/10 backdrop-blur-lg rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/25">
                           <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                             <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"></div>
                             <span className="text-white/90 font-medium text-sm sm:text-base">Story Moment</span>
@@ -278,14 +278,14 @@ const NainitalStory = () => {
           </p>
           
           {/* Story Navigation */}
-          <div className="bg-black/30 sm:bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 max-w-4xl mx-auto">
+          <div className="bg-white/8 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/25 max-w-4xl mx-auto">
             <h4 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-white">Relive the Journey</h4>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {storyData.slice(0, 4).map((story, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(index)}
-                  className="group bg-black/20 sm:bg-white/10 hover:bg-black/30 sm:hover:bg-white/20 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/20 transition-all duration-300 hover:scale-105"
+                  className="group bg-white/8 hover:bg-white/15 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/25 transition-all duration-300 hover:scale-105"
                 >
                   <div className="text-white/80 group-hover:text-white mb-2 flex justify-center">
                     {story.icon}
