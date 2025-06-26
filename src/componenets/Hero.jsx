@@ -153,11 +153,7 @@ const NainitalStory = () => {
             }}
           />
           
-          {/* Overlay */}
-          <div className={`absolute inset-0 ${section.overlay}`} />
-          
-          {/* Parallax Effect Layer */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+          {/* Removed overlays for pure transparency */}
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-6xl mx-auto">
@@ -195,12 +191,12 @@ const NainitalStory = () => {
                           alt={section.title}
                           className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl sm:rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] border border-white/20"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-xl sm:rounded-2xl" />
+                        {/* Removed gradient overlay for pure image visibility */}
                         
                         {/* Floating timestamp */}
                         <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
-                          <div className="bg-black/50 backdrop-blur-lg rounded-full px-2 sm:px-3 py-1 border border-white/20">
-                            <span className="text-white/90 text-xs font-medium">Chapter {index + 1}</span>
+                          <div className="backdrop-blur-lg rounded-full px-2 sm:px-3 py-1 border border-white/30">
+                            <span className="text-white text-xs font-medium drop-shadow-lg">Chapter {index + 1}</span>
                           </div>
                         </div>
                       </div>
@@ -210,7 +206,7 @@ const NainitalStory = () => {
                     <div className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} order-2`}>
                       <div className="space-y-4 sm:space-y-6">
                         <div className="backdrop-blur-sm border border-white/20 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg">
-                          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/90 font-light italic">
+                          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white font-light italic drop-shadow-lg">
                             "{section.content}"
                           </p>
                         </div>
@@ -221,7 +217,7 @@ const NainitalStory = () => {
                             <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"></div>
                             <span className="text-white/90 font-medium text-sm sm:text-base">Story Moment</span>
                           </div>
-                          <p className="text-white/80 text-sm sm:text-base leading-relaxed">
+                          <p className="text-white text-sm sm:text-base leading-relaxed drop-shadow-lg">
                             {section.point}
                           </p>
                         </div>
