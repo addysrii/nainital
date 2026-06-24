@@ -30,9 +30,9 @@ const Navbar = () => {
   const projectLinks = [
     { name: 'Web Development', path: '/webdev', dot: 'bg-sky-400' },
     { name: 'Mobile Apps', path: '/mobdev', dot: 'bg-pink-400' },
-    { name: 'AI / ML', path: '/aiml', dot: 'bg-purple-400' },
-    { name: 'Blockchain', path: '/blockchain', dot: 'bg-emerald-400' },
-    { name: 'IoT', path: '/iot', dot: 'bg-amber-400' },
+    // { name: 'AI / ML', path: '/aiml', dot: 'bg-purple-400' },
+    // { name: 'Blockchain', path: '/blockchain', dot: 'bg-emerald-400' },
+    // { name: 'IoT', path: '/iot', dot: 'bg-amber-400' },
   ];
 
   const navLink = (to, label) => (
