@@ -506,7 +506,7 @@ const Home = () => {
               />
               {/* floating stat */}
               <motion.div
-                className="absolute -top-6 -right-6 glass px-5 py-4 rounded-xl border border-[#c9a84c]/20"
+                className="absolute -top-18 -right-6 glass px-5 py-4 rounded-xl border border-[#c9a84c]/20"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
               >
