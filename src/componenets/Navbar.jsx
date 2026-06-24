@@ -514,7 +514,7 @@ const Home = () => {
                 <p className="text-xs text-gray-400 mt-0.5">Projects shipped</p>
               </motion.div>
               <motion.div
-                className="absolute -bottom-6 -left-6 glass px-5 py-4 rounded-xl border border-white/8"
+                className="absolute -bottom-6 -left-6 glass px-5 py-4 rounded-xl border border-white/8 z-4"
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
               >
