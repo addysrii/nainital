@@ -487,40 +487,69 @@ const Home = () => {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
 
           {/* image column */}
+          {/* image column */}
           <ScaleIn>
-            <div className="relative">
-              <div className="relative z-10 ">
-                <img
-                  src={img}
-                  alt="Aditya"
-                  className="w-full h-[520px] object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <span className="badge">Full-Stack Engineer</span>
+            <div className="relative overflow-visible">
+
+              {/* Profile Image */}
+              <div className="relative z-10">
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={img}
+                    alt="Aditya"
+                    className="w-full h-[520px] object-cover object-top"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/80 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-4 left-52">
+                    <span className="badge">Full-Stack Engineer</span>
+                  </div>
                 </div>
               </div>
-              {/* decorative frame */}
+
+              {/* Decorative Frame */}
               <div
-                className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border border-[#c9a84c]/20 -z-0"
+                className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border border-[#c9a84c]/20"
               />
-              {/* floating stat */}
+
+              {/* Projects Developed Card */}
               <motion.div
-                className="absolute -top-6 -right-6 glass px-5 py-4 rounded-xl border border-[#c9a84c]/20"
+                className="absolute -top-16 -right-10 z-30 glass px-5 py-4 rounded-xl border border-[#c9a84c]/20 shadow-xl"
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
-                <p className="font-display text-3xl font-bold text-[#c9a84c]">10+</p>
-                <p className="text-xs text-gray-400 mt-0.5">Projects developed</p>
+                <p className="font-display text-3xl font-bold text-[#c9a84c]">
+                  10+
+                </p>
+                <p className="text-xs text-blue-400 mt-0.5">
+                  Projects Developed
+                </p>
               </motion.div>
+
+              {/* Experience Card */}
               <motion.div
-                className="absolute -bottom-6 -left-6 glass px-5 py-4 rounded-xl border border-white/8 "
+                className="absolute -bottom-10 -left-10 z-30 glass px-5 py-4 rounded-xl border border-white/8 shadow-xl"
                 animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
               >
-                <p className="font-display text-3xl font-bold text-white">3+</p>
-                <p className="text-xs text-gray-400 mt-0.5">Years experience</p>
+                <p className="font-display text-3xl font-bold text-white">
+                  3+
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">
+                  Years Experience
+                </p>
               </motion.div>
+
             </div>
           </ScaleIn>
 
