@@ -1,186 +1,174 @@
 import React from 'react';
-import { Code, Layers, Gauge, Lock, Palette, Laptop, ArrowRight, Globe, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const WebDev = () => {
-  const features = [
-    {
-      id: 1,
-      icon: <Layers className="w-8 h-8 text-sky-400" />,
-      title: "Custom CMS Solutions",
-      description: "Tailored content management systems for galleries and museums to easily manage digital collections and exhibitions."
-    },
-    {
-      id: 2,
-      icon: <Gauge className="w-8 h-8 text-pink-500" />,
-      title: "High Performance",
-      description: "Optimized web applications that deliver seamless experiences even with large media collections."
-    },
-    {
-      id: 3,
-      icon: <Laptop className="w-8 h-8 text-yellow-400" />,
-      title: "Responsive Design",
-      description: "Fluid layouts that adapt perfectly to all devices, ensuring your content looks great everywhere."
-    },
-    {
-      id: 4,
-      icon: <Lock className="w-8 h-8 text-red-500" />,
-      title: "Secure Architecture",
-      description: "Built-in security measures to protect your digital assets and user data with industry best practices."
-    },
-    {
-      id: 5,
-      icon: <Code className="w-8 h-8 text-orange-500" />,
-      title: "Modern Stack",
-      description: "Built with cutting-edge technologies like React, Next.js, and Node.js for optimal performance."
-    },
-    {
-      id: 6,
-      icon: <Palette className="w-8 h-8 text-green-500" />,
-      title: "Custom Design",
-      description: "Unique, branded interfaces that reflect your institution's identity while ensuring accessibility."
-    }
-  ];
+const FadeUp = ({ children, delay = 0, className = '' }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
-  const processSteps = [
-    {
-      step: "01",
-      title: "Discovery",
-      description: "We analyze your needs and goals to create a comprehensive project roadmap."
-    },
-    {
-      step: "02",
-      title: "Design",
-      description: "Creating wireframes and visual designs that align with your brand identity."
-    },
-    {
-      step: "03",
-      title: "Development",
-      description: "Building your solution with clean, maintainable code and regular updates."
-    },
-    {
-      step: "04",
-      title: "Deployment",
-      description: "Thorough testing and smooth deployment to ensure everything works perfectly."
-    }
-  ];
+const ScaleIn = ({ children, delay = 0, className = '' }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.93 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
-  const technologies = [
-    "React & Next.js", "Node.js", "TypeScript", "MongoDB",
-    "AWS & Cloud", "GraphQL", "Tailwind CSS", "Docker"
-  ];
+const PROJECTS = [
+  {
+    title: 'Distribution Lab Landing Page',
+    subtitle: 'Agency Website Replication',
+    year: '2024',
+    description: 'Pixel-perfect recreation of a professional agency website with mint-green branding, interactive forms and animated sections. Built with React and CSS Modules.',
+    tech: ['React', 'CSS Modules', 'Framer Motion', 'Vite'],
+    img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80',
+    link: '#'
+  },
+  {
+    title: 'Couples Games Hub',
+    subtitle: 'Collaborative Web Platform',
+    year: '2023',
+    description: 'Full-stack shared workspace for couples with real-time study timer sync, drawing whiteboard, to-do lists and a virtual item store.',
+    tech: ['Next.js', 'Node.js', 'MongoDB', 'WebSockets', 'Tailwind'],
+    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+    link: '#'
+  },
+  {
+    title: 'Society QR Entry System',
+    subtitle: 'Residential Management Dashboard',
+    year: '2023',
+    description: 'Web admin panel with real-time entry logs, resident management, guard dashboard and dynamic QR validation — all synced via Socket.io.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Tailwind'],
+    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
+    link: '#'
+  },
+];
 
-  return (
-    <div className="min-h-screen pt-24 px-4 pb-16">
-      {/* Hero Section */}
-      <div className="relative text-center mb-24">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-red-500/10 to-pink-500/10 blur-3xl -z-10"></div>
-        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 mb-8 pb-2">
-          Web Development Solutions
-        </h1>
-        <p className="text-lg md:text-xl text-white max-w-3xl mx-auto mt-4 font-medium">
-          Creating immersive digital experiences for cultural institutions with modern web technologies
-        </p>
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-64 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 rounded-full blur-sm"></div>
-        
-        {/* Hero Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {[
-            { value: "100+", label: "Projects Completed" },
-            { value: "99%", label: "Client Satisfaction" },
-            { value: "24/7", label: "Support Available" }
-          ].map((stat, index) => (
-            <div key={index} className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-sky-400/30">
-              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-gray-300">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+const STACK = [
+  { name: 'React', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
+  { name: 'Next.js', img: 'https://static.cdnlogo.com/logos/n/80/next-js.svg' },
+  { name: 'Node.js', img: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg' },
+  { name: 'MongoDB', img: 'https://www.svgrepo.com/show/331488/mongodb.svg' },
+  { name: 'Tailwind', img: 'https://www.svgrepo.com/show/374118/tailwind.svg' },
+  { name: 'Vite', img: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg' },
+];
+
+const WebDev = () => (
+  <div className="grain bg-[#0d0d0d] min-h-screen text-white pt-24">
+
+    {/* Hero */}
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=1600&q=80"
+          alt="Web Dev"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/30 to-[#0d0d0d]" />
       </div>
 
-      {/* Features Grid */}
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-        {features.map((feature) => (
-          <div 
-            key={feature.id}
-            className="group relative bg-black/40 backdrop-blur-sm rounded-lg p-6 border border-sky-400/30 hover:border-yellow-400/50 transition-all duration-500 hover:transform hover:-translate-y-1"
-          >
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-red-500/50 rounded-tl-lg"></div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-sky-400/50 rounded-br-lg"></div>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#c9a84c] transition-colors mb-12 font-mono">
+          <ArrowLeft className="w-4 h-4" /> Back to Home
+        </Link>
 
-            <div className="mb-4">{feature.icon}</div>
-            <h3 className="text-xl font-bold mb-2 text-white group-hover:text-yellow-400 transition-colors">
-              {feature.title}
-            </h3>
-            <p className="text-gray-200 font-medium leading-relaxed">
-              {feature.description}
-            </p>
-          </div>
-        ))}
+        <FadeUp>
+          <span className="section-label">Expertise Area</span>
+          <h1 className="font-display text-5xl md:text-7xl font-black text-white mt-2 leading-tight">
+            Web<br />
+            <span className="text-gold-gradient animate-shimmer">Development</span>
+          </h1>
+          <p className="text-gray-400 max-w-xl mt-6 text-[15px] leading-relaxed">
+            From concept to deployment — building performant, accessible and visually stunning web applications using modern full-stack technologies.
+          </p>
+        </FadeUp>
       </div>
+    </section>
 
-      {/* Technologies Section */}
-      <div className="relative bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-16 border border-sky-400/30">
-        <div className="absolute inset-0 bg-gradient-to-r from-sky-400/5 via-red-500/5 to-yellow-400/5 rounded-lg"></div>
-        <h2 className="text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-center">
-          Technologies We Use
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {technologies.map((tech, index) => (
-            <div key={index} className="flex items-center space-x-2 text-white">
-              <CheckCircle2 className="w-5 h-5 text-sky-400" />
-              <span>{tech}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    {/* Projects */}
+    <section className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <FadeUp className="mb-12">
+          <span className="section-label">Featured Builds</span>
+          <h2 className="font-display text-3xl font-bold text-white mt-1">Web Projects</h2>
+        </FadeUp>
 
-      {/* Process Section */}
-      <div className="relative bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-16 border border-sky-400/30">
-        <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-red-500/50 rounded-tl-lg"></div>
-        <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-sky-400/50 rounded-br-lg"></div>
-
-        <h2 className="text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-center">
-          Our Development Process
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <div key={step.step} className="relative">
-              <div className="text-6xl font-bold text-yellow-400/10 absolute -top-8 -left-4">
-                {step.step}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROJECTS.map((p, i) => (
+            <ScaleIn key={p.title} delay={i * 0.1}>
+              <div className="glass glass-hover h-full flex flex-col overflow-hidden" style={{ borderRadius: '16px' }}>
+                <div className="relative h-48 overflow-hidden rounded-t-2xl">
+                  <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 to-transparent" />
+                </div>
+                <div className="p-6 flex flex-col flex-1 gap-3">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-display font-bold text-lg text-white">{p.title}</h3>
+                      <p className="text-xs text-sky-400 mt-0.5">{p.subtitle}</p>
+                    </div>
+                    <span className="font-mono text-xs text-[#555]">{p.year}</span>
+                  </div>
+                  <p className="text-sm text-gray-400 leading-relaxed flex-1">{p.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.tech.map(t => (
+                      <span key={t} className="font-mono text-[10px] px-2 py-0.5 rounded border border-white/8 text-gray-500">{t}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-2 text-white">
-                  {step.title}
-                </h3>
-                <p className="text-gray-200 font-medium">
-                  {step.description}
-                </p>
-              </div>
-              {index !== processSteps.length - 1 && (
-                <ArrowRight className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-sky-400/30" />
-              )}
-            </div>
+            </ScaleIn>
           ))}
         </div>
       </div>
+    </section>
 
-      {/* CTA Section */}
-      <div className="text-center relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-red-500/10 to-pink-500/10 blur-2xl -z-10"></div>
-        <Globe className="w-16 h-16 mx-auto mb-6 text-sky-400/50" />
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-          Ready to Start Your Project?
-        </h2>
-        <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
-          Let's discuss how we can help bring your cultural institution into the digital age with a custom web solution.
-        </p>
-        <button className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white font-bold rounded-lg hover:opacity-90 transition-all hover:scale-105 duration-300 shadow-lg shadow-pink-500/20">
-          Get in Touch
-        </button>
+    {/* Stack */}
+    <section className="py-20 px-6 bg-[#111]/60">
+      <div className="max-w-6xl mx-auto">
+        <FadeUp className="mb-10 text-center">
+          <span className="section-label">Technology Stack</span>
+          <h2 className="font-display text-3xl font-bold text-white mt-1">Tools I Use</h2>
+        </FadeUp>
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+          {STACK.map((s, i) => (
+            <ScaleIn key={s.name} delay={i * 0.07}>
+              <div className="glass glass-hover flex flex-col items-center gap-3 p-5 rounded-xl text-center">
+                <img src={s.img} alt={s.name} className="w-10 h-10 object-contain" />
+                <span className="text-xs font-mono text-gray-400">{s.name}</span>
+              </div>
+            </ScaleIn>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-};
+    </section>
+
+    {/* CTA */}
+    <section className="py-20 px-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <FadeUp>
+          <h2 className="font-display text-3xl font-bold text-white mb-4">Have a Web Project?</h2>
+          <p className="text-gray-400 mb-8">Let's design and ship a web application that stands out.</p>
+          <a href="/#contact" className="btn-gold">
+            Get in Touch <ArrowRight className="w-4 h-4" />
+          </a>
+        </FadeUp>
+      </div>
+    </section>
+  </div>
+);
 
 export default WebDev;
