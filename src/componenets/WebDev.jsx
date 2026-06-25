@@ -29,6 +29,24 @@ const ScaleIn = ({ children, delay = 0, className = '' }) => (
 
 const PROJECTS = [
   {
+    title: 'AstroDate',
+    subtitle: 'Astrology Dating App',
+    year: '2026',
+    description: 'A matchmaking web & mobile application that pairs users by horoscope compatibility with a custom onboarding workflow, real-time messaging, and profile management dashboards.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
+    img: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80',
+    link: '#'
+  },
+  {
+    title: 'IPL Auction',
+    subtitle: 'Real-time Bidding Dashboard',
+    year: '2026',
+    description: 'A full-stack IPL player auction management system with real-time bidding simulation, CSV player database imports, and franchise squad budget tracking.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'CSV Parser'],
+    img: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80',
+    link: '#'
+  },
+  {
     title: 'Distribution Lab Landing Page',
     subtitle: 'Agency Website Replication',
     year: '2024',
